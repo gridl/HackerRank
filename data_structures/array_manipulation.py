@@ -13,14 +13,14 @@ performing the update  = , the new list would be  = [, , ].
 Here, we've added value 30 to elements between indices 2 and 3.
 Note the index of the list starts from 1.
 """
-
+from itertools import accumulate
 N, Q = map(int, input().split())
 
-z_list = [0] * N
+z_list = [0] * (N + 1)
 
 for i in range(Q):
-    a, b, num = map(int, input().split())
-    for item in range(a-1, b):
-        z_list[item] += num
+    a, b, num = map(int, input().split(" "))
+    z_list[a - 1] += num
+    z_list[b] -= num
 
-print(max(z_list))
+print(max(accumulate(z_list)))
