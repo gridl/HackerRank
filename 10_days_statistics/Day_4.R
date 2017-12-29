@@ -59,3 +59,15 @@ cat('\n')
 # for the at least 2 rejects
 at_least <- leastBinomialDist(2, N, p)
 cat(format(round(at_least, 3), nsmall=1))
+
+
+# Part C
+
+
+#The probability that a machine produces a defective product is . What is the probability that the  defect is found during the  inspection?
+ p <- 1 / 3
+ inspections <- 5
+ 
+ geom_dist <- ((1 - p)^(inspections-1)) * p
+ 
+ cat(format(geom_dist, 3, nsmall = 1))
