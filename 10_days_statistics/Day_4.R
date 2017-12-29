@@ -29,3 +29,33 @@ res <- leastBinomialDist(boy_atleast, N, p)
 
 
 cat(format(round(res, 3), nsmall=1))
+
+# Part 2
+
+# A manufacturer of metal pistons finds that, on average,  of the pistons they manufacture are rejected because they are incorrectly sized. What is the probability that a batch of pistons will contain:
+#No more than  rejects?
+# At least  rejects?
+
+p <- 0.12
+N <- 10
+
+
+
+mostBinomialDist <- function(R, N, P){
+  result <-0
+  for (i in 0:R){
+    result <- result + binomialDist(i, N, P)
+  }
+  return(result)
+}
+
+
+
+
+# for the no more than 2 rejects
+no_more <- mostBinomialDist(2, N, p)
+cat(format(round(no_more, 3), nsmall=1))
+cat('\n')
+# for the at least 2 rejects
+at_least <- leastBinomialDist(2, N, p)
+cat(format(round(at_least, 3), nsmall=1))
