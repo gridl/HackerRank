@@ -30,3 +30,25 @@ CostB <- 128 + 40 * (lambda_b + lambda_b ^ 2)
 cat(format(CostA, 3, nsmall = 1))
 cat('\n')
 cat(format(CostB, 3, nsmall = 1))
+
+#-------------
+
+# Normal distribution
+
+#In a certain plant, the time taken to assemble a car is a random variable, , having a normal distribution with a mean of  hours and a standard deviation of  hours. What is the probability that a car can be assembled at this plant in:
+# Less than 19.5 hours
+# Less than 20 and 22 hours 
+
+pmean <- 20
+sdev <- 2
+
+# For a) less than 19.5 hours
+a <- pnorm(19.5, mean = pmean, sd =  sdev)
+
+# remeber for larger or equal you use the lower.tail = FALSE
+
+b <- (pnorm(22, mean = pmean, sd =  sdev) - pnorm(20, mean = pmean, sd =  sdev))
+
+cat(format(a, 3, nsmall = 1))
+cat('\n')
+cat(format(b, 3, nsmall = 1))
